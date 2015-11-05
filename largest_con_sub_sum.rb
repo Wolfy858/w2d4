@@ -17,3 +17,24 @@ def largest_contiguous_subsum(array)
 
   largest_sum
 end
+
+def better_largest_contiguous_subsum(array)
+
+
+  largest_sum = array.first
+  current_sum = 0
+
+
+  array.each do |element|
+    if current_sum + element > 0
+      current_sum += element
+    else
+      current_sum = 0
+    end
+
+    if current_sum > largest_sum
+      largest_sum = current_sum
+    end
+  end
+  largest_sum
+end
