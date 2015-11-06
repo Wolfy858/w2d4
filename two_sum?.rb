@@ -38,5 +38,14 @@ def binary_search(arr, target, to_skip)
     sub_answer = binary_search(arr.drop(middle + 1), target, to_skip)
     sub_answer.nil? ? nil : middle + 1 + sub_answer
   end
+end
 
+def pair_sum?(arr, target_sum)
+  hash = {}
+
+  arr.each do |element|
+    return true if hash[target_sum - element]
+    hash[element] = target_sum - element
+  end
+  false
 end
